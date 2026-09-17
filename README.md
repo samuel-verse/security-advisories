@@ -8,7 +8,7 @@ Maintained by Samuel Verse · [LinkedIn](https://www.linkedin.com/in/samuel-vers
 
 | ID | Product | CWE | Status | Published |
 |---|---|---|---|---|
-| [VU#515952](CVE-pending-lev-net-express.md) | Lev-Net Express (Chrome extension) | CWE-922, CWE-311 | Fixed by vendor | 2026-09-15 |
+| [VU#515952](lev-net-express-insecure-credential-storage.md) | Lev-Net Express (Chrome extension) | CWE-922, CWE-311 | Fixed by vendor — no CVE assigned | 2026-09-15 |
 
 ## Disclosure policy
 
