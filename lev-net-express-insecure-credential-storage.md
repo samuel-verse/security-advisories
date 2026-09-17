@@ -1,17 +1,20 @@
 # Insecure Credential Storage in Lev-Net Express (JCT AutoLogin) Chrome Extension
 
-CVE ID: none — MITRE declined assignment (2026-09-17). Their assessment: the
+**CVE ID:** none — MITRE declined assignment (2026-09-17). Their assessment: the
 issue requires an attacker to already have filesystem access to the victim's
-device, which would itself constitute a greater compromise, so there is no
-net security impact warranting a CVE.
+device, which would itself constitute a greater compromise, so there is no net
+security impact warranting a CVE. The advisory is published regardless, since the
+extension's stated security guarantee — that stored credentials are protected by a
+passkey requiring user verification — did not hold on the fallback path.
 
+**Tracking:** CERT/CC VU#515952
 
 **Product:** Lev-Net Express (JCT AutoLogin) — Chrome browser extension
 **Vendor:** Elad — levnet@elad.email
 **Affected versions:** 2.3.7 and earlier
 **Fixed in:** 2.3.8
 **CWE:** CWE-922 (Insecure Storage of Sensitive Information), CWE-311 (Missing Encryption of Sensitive Data)
-**Reporter:** Samuel Verse (independent researcher)
+**Reporter:** Samuel Verse
 **Disclosure:** Coordinated — vendor notified 2026-05-04, fix released, published 2026-09-15
 
 ---
@@ -128,6 +131,10 @@ Since the previously stored credentials may have been recoverable, users who ran
 affected version on a machine they do not fully trust should also rotate their
 Microsoft account password and reset their TOTP authenticator.
 
+Note: as of 2026-09, JCT has removed TOTP from its accepted MFA methods in favour
+of phishing-resistant authentication, which disables the extension's auto-login
+mechanism entirely.
+
 ## Timeline
 
 | Date | Event |
@@ -141,6 +148,7 @@ Microsoft account password and reset their TOTP authenticator.
 | 2026-07-28 | CERT/CC opens case VU#515952 |
 | 2026-09-14 | CERT/CC defers CVE assignment to MITRE; advises independent publication |
 | 2026-09-15 | Public disclosure |
+| 2026-09-17 | MITRE declines CVE assignment — no net security impact |
 
 Vendor released the fix in version 2.3.8 following the initial report.
 
@@ -150,3 +158,6 @@ Reported by Samuel Verse.
 
 Thanks to the vendor for acknowledging the issue promptly and shipping a fix
 without friction, and to CERT/CC for coordination assistance.
+
+Disclosure note: the reporter is employed as a security engineer at JCT. This
+research was conducted independently of that role.
